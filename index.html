@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <div class="container mt-5">
+            <div class="row" id="projectsContainer">
+            </div>
+        </div>
+    </header>
+    <script>
+        const projects = [
+            { title: 'Project 1', tags: ['web', 'design'] },
+            { title: 'Project 2', tags: ['Mobile', 'development'] },
+            { title: 'Project 3', tags: ['web', 'UI/UX'] },
+        ];
+
+        const projectsContainer = document.getElementById('projectsContainer');
+
+        projects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('col-lg-4', 'mb-4');
+
+            const tags = project.tags.map(tag => `<button class="btn btn-primary">${tag}</button>`).join(' ');
+
+            projectCard.innerHTML = `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${project.title}</h5>
+                        <p class="card-text"> ${tags}</p>
+                    </div>
+                </div>
+            `;
+
+            projectsContainer.appendChild(projectCard);
+        });
+    </script>
+</body>
+</html>
